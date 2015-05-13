@@ -141,8 +141,12 @@ public:
 	}
 
 
-	double BubbleSortSuperOptimized()
+	double CombSort()
 	{
+
+
+		int gap = num_elements;
+		int i, j;
 
 		bool swapped = true;
 		int counter = 0;
@@ -154,27 +158,99 @@ public:
 		{
 			swapped = false;
 
+			gap = gap * 10 / 13;
+			for (i = 0, j = gap; j < num_elements; i++, j++)
+			{
+				counter++;
+				if (data[i] > data[j])
+				{
+
+					Swap(data[i], data[(j)]);
+
+					swapped = true;
+
+				}
+
+			}
+			--num;
+
+		}
+		return counter;
+	
+	
+	
+	
+	}
+
+
+	double BubbleSortSuperOptimized()
+	{
+
+		bool swapped = true;
+		int counter = 0;
+		int num = num_elements;
+		int swapWhere = num_elements;
+		int tmpEnd;
+		int tmpStart = 0;
+		int alreadySorted = 0;
+
+		while (swapped)
+		{
+			swapped = false;
+			
+
 			for (int i = 0; i < num - 1; i++)
 			{
 				counter++;
 				if (data[i] > data[(i + 1)])
 				{
-					int m = i;
 
 					Swap(data[i], data[(i + 1)]);
 
 					swapped = true;
 
-					swapWhere = i;
+				}
+
+			}
+			
+
+			tmpEnd = num;
+
+
+			for (int i = tmpEnd; i > 0 + alreadySorted; --i)
+			{
+				counter++;
+				if (data[i] > data[(i + 1)])
+				{
+				
+					Swap(data[i], data[(i + 1)]);
+
+					swapped = true;
 
 				}
 
-
 			}
-			num = swapWhere;
+
+			++alreadySorted;
+
+
+			--num;
+			
 		}
 		return counter;
 
+	}
+
+	//Print Array
+	void PrintArray()
+	{
+		if (num_elements == 0)
+			printf("The array is empty");
+
+		for (int i = 0; i < num_elements; i++)
+		{
+			printf("%d ", data[i]);//We manually change % because i don't know how to make the program detect its type (it doesn't really matter cause its for debugging)
+		}
 	}
 
 
@@ -183,6 +259,7 @@ public:
 	double BubbleSortOptimized()
 	{
 
+
 		bool swapped = true;
 		int counter = 0;
 		int num = num_elements;
@@ -192,25 +269,24 @@ public:
 		while (swapped)
 		{
 			swapped = false;
-			num--;
+
+
 			for (int i = 0; i < num - 1; i++)
 			{
 				counter++;
 				if (data[i] > data[(i + 1)])
 				{
 					int m = i;
-					 
+
 					Swap(data[i], data[(i + 1)]);
-					
+
 					swapped = true;
-				
-					swapWhere = i;
 
 				}
 
-				
 			}
-			num = swapWhere;
+			--num;
+
 		}
 		return counter;
 

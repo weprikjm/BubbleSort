@@ -8,21 +8,16 @@ int main()
 	
 	
 	
-	
-	
-	
-	
-	
 	for (int i = 0; i < 10000; i++)
 	{
 		bubble.PushBack(rand());
 	}
 	
 
-	int i = bubble.BubbleSortSuperOptimized();
+	int i = bubble.CombSort();
 
 	
-	
+	bubble.PrintArray();
 	printf("\n%d", i);
 	
 	getchar();
