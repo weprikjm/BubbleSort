@@ -263,7 +263,6 @@ public:
 		bool swapped = true;
 		int counter = 0;
 		int num = num_elements;
-		int swapWhere = num_elements;
 
 
 		while (swapped)

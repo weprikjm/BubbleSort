@@ -18,7 +18,7 @@ int main()
 
 	
 	bubble.PrintArray();
-	printf("\n%d", i);
+	printf("\n\n%d", i);
 	
 	getchar();
 
